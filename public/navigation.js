@@ -1,0 +1,1 @@
+(()=>{const links=[...document.querySelectorAll('header nav a')];const sync=()=>{let active=links[0];for(const a of links){const section=document.querySelector(a.hash);if(section&&section.getBoundingClientRect().top<220)active=a}links.forEach(a=>a.classList.toggle('active',a===active))};document.addEventListener('scroll',sync,{passive:true});sync()})();

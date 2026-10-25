@@ -1,0 +1,22 @@
+import{test}from'node:test';import assert from'node:assert/strict';import{DatabaseSync}from'node:sqlite';import{readFileSync}from'node:fs';import vm from'node:vm';
+import{onRequestPost as personal}from'../functions/api/personal.js';import{onRequestPost as memories}from'../functions/api/memories.js';import{onRequestGet as photo}from'../functions/api/photos/[key].js';
+const db=new DatabaseSync(':memory:');db.exec(readFileSync('schema.sql','utf8'));const DB = {
+ prepare(sql) {
+  return {bind(...values) {
+   values=values.map(x=>x instanceof ArrayBuffer?new Uint8Array(x):x);
+   const statement=db.prepare(sql);
+   return {
+    async all(){return {results:statement.all(...values)}},
+    async run(){return {meta:{changes:Number(statement.run(...values).changes)}}}
+   };
+  }};
+ }
+};
+const env={DB};
+async function call(name,action,rest={}){const r=await personal({env,request:new Request('https://test.pages.dev/api/personal',{method:'POST',headers:{origin:'https://test.pages.dev','content-type':'application/json'},body:JSON.stringify({username:name,action,...rest})})});return{status:r.status,data:await r.json()}}
+await test('nickname records, memo, meals, exact expense sum and cross-name protection',async()=>{let r=await call('小鹿','save',{kind:'packing',title:'防晒霜'});assert.equal(r.status,200);const id=r.data.records[0].id;assert.equal((await call('朋友','load')).data.records.length,0);assert.equal((await call('朋友','remove',{id})).status,404);assert.equal((await call('小鹿','toggle',{id,done:true})).data.records[0].done,1);assert.equal((await call('小鹿','save',{kind:'memo',title:'明天见'})).status,200);assert.equal((await call('小鹿','save',{kind:'meal',day:'2026-10-29',slot:'lunch',title:'海南粉',venue:'餐馆',address:'三亚'})).status,200);for(const amount of ['0.10','0.20'])r=await call('小鹿','save',{kind:'expense',day:'2026-10-29',title:'餐饮',category:'餐饮',amount});assert.equal(r.data.totalFen,30)});
+await test('no configured D1 reports unavailability rather than successful save',async()=>{const r=await personal({env:{},request:new Request('https://test.pages.dev/api/personal',{method:'POST'})});assert.equal(r.status,503)});
+await test('real photo stored and served through D1, not R2; retain/replace/delete',async()=>{const id=crypto.randomUUID(),image=readFileSync('public/scenes/sanya.webp');async function save(username,action,extra={},files=[]){const f=new FormData();Object.entries({username,id,action,day:'2026-11-01',place:'神州半岛',feeling:'海风很好',keep:'[]',...extra}).forEach(([k,v])=>f.set(k,v));files.forEach(bytes=>f.append('photos',new Blob([bytes],{type:'image/webp'}),'scene.webp'));const r=await memories({env,request:new Request('https://test.pages.dev/api/memories',{method:'POST',headers:{origin:'https://test.pages.dev'},body:f})});return r}
+assert.equal((await save('小鹿','save',{},[image])).status,200);let rows=(await call('小鹿','load')).data.memories;const key=rows[0].photos[0];let r=await photo({env,request:new Request('https://test.pages.dev/api/photos/'+key)});assert.equal(r.status,200);assert.deepEqual(new Uint8Array(await r.arrayBuffer()),new Uint8Array(image));assert.equal((await save('朋友','remove')).status,404);assert.equal((await save('小鹿','save',{keep:JSON.stringify([key]),feeling:'补一句'})).status,200);assert.equal(db.prepare('SELECT COUNT(*) AS n FROM diary_photos').get().n,1);assert.equal((await save('小鹿','save',{},[Buffer.alloc(512*1024+1)])).status,400);assert.equal((await save('小鹿','save',{},[Buffer.from('<svg/>')])).status,400);assert.equal((await save('小鹿','save',{},[image])).status,200);assert.equal(db.prepare('SELECT COUNT(*) AS n FROM diary_photos').get().n,1);assert.equal((await photo({env,request:new Request('https://test.pages.dev/api/photos/'+key)})).status,404);assert.equal((await save('小鹿','remove')).status,200);assert.equal(db.prepare('SELECT COUNT(*) AS n FROM diary_photos').get().n,0)});
+await test('schedule countdown switches exactly at event boundaries',()=>{const code=readFileSync('public/travel-extras.js','utf8'),ctx={};vm.createContext(ctx);vm.runInContext(code.slice(0,code.indexOf('(()=>{')),ctx);const events=[{start:100,end:200},{start:250,end:300}];assert.equal(ctx.nextScheduledEvent(events,50),events[0]);assert.equal(ctx.nextScheduledEvent(events,199),events[0]);assert.equal(ctx.nextScheduledEvent(events,200),events[1]);assert.equal(ctx.nextScheduledEvent(events,300),null);events[0].done=true;assert.equal(ctx.nextScheduledEvent(events,150),events[1])});
+db.close();

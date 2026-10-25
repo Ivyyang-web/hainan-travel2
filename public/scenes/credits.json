@@ -1,0 +1,29 @@
+[
+  {
+    "file": "sanya.webp",
+    "title": "Sanya bay sea beach.JPG",
+    "author": "Shizhao",
+    "source": "https://commons.wikimedia.org/wiki/File:Sanya_bay_sea_beach.JPG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Resized and converted to WebP; CSS crop for display"
+  },
+  {
+    "file": "shenzhou.webp",
+    "title": "Shenzhou Peninsula (22).jpg",
+    "author": "STW932",
+    "source": "https://commons.wikimedia.org/wiki/File:Shenzhou_Peninsula_(22).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; CSS crop for display"
+  },
+  {
+    "file": "cloud.webp",
+    "title": "WormholeLibrary06.jpg",
+    "author": "STW932; underlying building MAD Architects",
+    "source": "https://commons.wikimedia.org/wiki/File:WormholeLibrary06.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized and converted to WebP; CSS crop for display"
+  }
+]

@@ -411,5 +411,12 @@ const POINTS={
     "hint": "从肖旗港码头乘船进入，半日重点渔村与海边；牛王岛不叠加，返船时间受海况与排队影响。",
     "source": "https://www.visitsanya.com/zh/destination/%E8%A5%BF%E5%B2%9B",
     "offshore": true
+  },
+  "forest": {
+    "name": "亚龙湾热带天堂森林公园游客中心",
+    "address": "三亚市吉阳区六盘路红霞岭亚龙湾热带天堂森林公园",
+    "city": "三亚",
+    "hint": "10月31日下午由肖旗港直接到游客中心/票面实际入口，使用观光车上下山。官方建议完整游览4—5小时，本次安排为精选短线；入园及下山车时间以当日为准。",
+    "source": "https://www.syyalongbay.cn/news_detail_9.html"
   }
 };

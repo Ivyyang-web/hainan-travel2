@@ -1,3 +1,4 @@
+'use strict';
 const POINTS={
   "hotel": {
     "name": "汉庭酒店(海口骑楼老街店) · 住宿候选",
@@ -243,13 +244,6 @@ const POINTS={
     "source": "https://www.cdfg.com.cn/4340/4340.html",
     "phone": "0898-96656"
   },
-  "forest": {
-    "name": "亚龙湾热带天堂森林公园游客中心",
-    "address": "三亚市吉阳区六盘路红霞岭亚龙湾热带天堂森林公园",
-    "city": "三亚",
-    "hint": "上车点选游客中心/购票入口，不直接导航园内山顶；入园、观光车及单项票分别看当天购票页。",
-    "source": "https://www.amap.com/place/B0FFIDDC29"
-  },
   "yalong": {
     "name": "亚龙湾公共沙滩",
     "address": "三亚市吉阳区亚龙湾国家旅游度假区公共沙滩入口",
@@ -271,14 +265,14 @@ const POINTS={
     "address": "三亚市海棠区海棠湾后海村蜈支洲岛陆上游客中心",
     "city": "三亚",
     "hint": "陆上码头：先查通航与票面，再排队登船；不要把目的地填成海里的岛中心让打车导航失效。",
-    "source": "https://www.wuzhizhou.com/ticket/"
+    "source": "https://coach.wuzhizhou.com/ticket/detail.html?modelCode=MP2024010515231911048"
   },
   "wuzhi": {
     "name": "蜈支洲岛",
     "address": "三亚市海棠区蜈支洲岛",
     "city": "三亚",
-    "hint": "只用船到达，岛内按官方开放路线走；部分环岛路仅允许观光车，不画成可步行的路线。",
-    "source": "https://www.wuzhizhou.com/islandStyle/detail_11662.html",
+    "hint": "10月30日上午轻量游，11:00开始返船；不安排潜水。海况与候船可能影响14:00活动，需早签到或预计9:30后才能登岛时应放弃登岛。部分环岛路禁止步行。",
+    "source": "https://coach.wuzhizhou.com/ticket/detail.html?modelCode=MP2024010515231911048",
     "offshore": true
   },
   "shimei": {
@@ -401,5 +395,21 @@ const POINTS={
     "hint": "“夏日冲浪店”也可能指节目/拍摄地，不等于确认营业的店铺。预约前核对店名、教练和课程；不默认已订课。",
     "source": "",
     "uncertain": true
+  },
+  "xidock": {
+    "name": "西岛海洋文化旅游区游客中心（肖旗港码头）",
+    "address": "三亚市天涯区三亚湾路肖旗港码头",
+    "city": "三亚",
+    "hint": "陆上检票与乘船出发点，打车到这里；岛端上下船码头以海况和当天现场指引为准。",
+    "source": "https://www.visitsanya.com/zh/destination/%E8%A5%BF%E5%B2%9B",
+    "phone": "0898-88910888"
+  },
+  "xidao": {
+    "name": "西岛",
+    "address": "三亚市天涯区西岛海洋文化旅游区岛上",
+    "city": "三亚",
+    "hint": "从肖旗港码头乘船进入，半日重点渔村与海边；牛王岛不叠加，返船时间受海况与排队影响。",
+    "source": "https://www.visitsanya.com/zh/destination/%E8%A5%BF%E5%B2%9B",
+    "offshore": true
   }
 };

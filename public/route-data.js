@@ -210,7 +210,7 @@ const POINTS={
     "name": "三亚湾（国光豪生对面海边）",
     "address": "三亚市天涯区三亚湾路188号酒店对面海岸",
     "city": "三亚",
-    "hint": "同一段海岸可完成三亚湾看海和椰梦长廊氛围体验，不把两个名字拆成两趟车。过街按酒店指定通道。",
+    "hint": "10月31日椰梦长廊使用本段开放海岸，按酒店指定通道过街；只是看海、散步与拍照。",
     "source": "",
     "approx": true
   },
@@ -218,7 +218,7 @@ const POINTS={
     "name": "椰梦长廊",
     "address": "三亚市天涯区三亚湾路滨海带",
     "city": "三亚",
-    "hint": "线性景观而非单一机位，主线只走酒店对面一段；想拍特定椰林照片需另确认入口。",
+    "hint": "10月31日傍晚安排国光豪生酒店对面的椰林与海岸一段，椰梦长廊不是单一机位，不为多个相似名字重复打车。",
     "source": "",
     "approx": true
   },
@@ -271,7 +271,7 @@ const POINTS={
     "name": "蜈支洲岛",
     "address": "三亚市海棠区蜈支洲岛",
     "city": "三亚",
-    "hint": "10月30日上午轻量游，11:00开始返船；不安排潜水。海况与候船可能影响14:00活动，需早签到或预计9:30后才能登岛时应放弃登岛。部分环岛路禁止步行。",
+    "hint": "10月30日上午轻量游，11:00开始返船；仅岸上观景。海况与候船可能影响14:00活动，需早签到或预计9:30后才能登岛时应放弃登岛。部分环岛路禁止步行。",
     "source": "https://coach.wuzhizhou.com/ticket/detail.html?modelCode=MP2024010515231911048",
     "offshore": true
   },
@@ -392,7 +392,7 @@ const POINTS={
     "name": "夏日冲浪店（收藏名称）",
     "address": "万宁市日月湾冲浪片区，具体门店待确认",
     "city": "万宁",
-    "hint": "“夏日冲浪店”也可能指节目/拍摄地，不等于确认营业的店铺。预约前核对店名、教练和课程；不默认已订课。",
+    "hint": "仅保留收藏名称与门店检索，不安排课程或下水体验；精确位置未核实。",
     "source": "",
     "uncertain": true
   },
@@ -408,15 +408,69 @@ const POINTS={
     "name": "西岛",
     "address": "三亚市天涯区西岛海洋文化旅游区岛上",
     "city": "三亚",
-    "hint": "从肖旗港码头乘船进入，半日重点渔村与海边；牛王岛不叠加，返船时间受海况与排队影响。",
+    "hint": "已从10月31日主线移除，仅留地点收藏；如另日想去，需从肖旗港乘船并确认通航。",
     "source": "https://www.visitsanya.com/zh/destination/%E8%A5%BF%E5%B2%9B",
     "offshore": true
   },
-  "forest": {
-    "name": "亚龙湾热带天堂森林公园游客中心",
-    "address": "三亚市吉阳区六盘路红霞岭亚龙湾热带天堂森林公园",
+  "tianyastreet": {
+    "name": "天涯小镇黄龙街",
+    "address": "三亚市天涯区马岭社区黄龙街步行街口",
     "city": "三亚",
-    "hint": "10月31日下午由肖旗港直接到游客中心/票面实际入口，使用观光车上下山。官方建议完整游览4—5小时，本次安排为精选短线；入园及下山车时间以当日为准。",
-    "source": "https://www.syyalongbay.cn/news_detail_9.html"
+    "hint": "10月30日晚先从街口沿黄龙街往海边走，再到观海明珠餐厅。只作街道入口检索，不伪造单一拍照点。",
+    "source": "https://ny.sanya.gov.cn/nyjsite/nyjly/202411/1c5bfbf0e37b4ac2889a302211c307e7.shtml",
+    "approx": true
+  },
+  "diadia": {
+    "name": "嗲嗲的椰子鸡·炭火烤文昌鸡（天涯小镇海景店）",
+    "address": "三亚市天涯区马岭社区黄龙街136号观海明珠B1层",
+    "city": "三亚",
+    "hint": "用户指定门店，资料中有“炭火烤/炭烤”写法，按天涯小镇海景店和黄龙街门牌核对，出发前确认营业与餐厅入口。",
+    "source": "https://hk.trip.com/moments/theme/poi-tianya-town-56807266-restaurant-993134/"
+  },
+  "xiaodong": {
+    "name": "小东海公共海岸",
+    "address": "三亚市吉阳区小东海路半山半岛小东海海岸片区",
+    "city": "三亚",
+    "hint": "只定位公共海岸片区，公共入口和通行以现场为准，不把酒店沙滩门当公共入口。",
+    "source": "https://www.zhinanlvyou.com/article.php?id=709",
+    "approx": true
+  },
+  "luhuitou": {
+    "name": "鹿回头风景区游客入口",
+    "address": "三亚市吉阳区小东海路与鹿岭路交叉口东北约150米",
+    "city": "三亚",
+    "hint": "先到游客入口，再按景区线路步行或乘观光车上山。10月31日安排14:05—15:45，营业与预约规则看当天公告。",
+    "source": "https://www.visitsanya.com/zh/destination/%E9%B9%BF%E5%9B%9E%E5%A4%B4%E9%A3%8E%E6%99%AF%E5%8C%BA"
+  },
+  "hupo": {
+    "name": "虎婆香草鸭·海南大排档（石梅湾店）",
+    "address": "万宁市礼纪镇石梅湾旅游度假区九里润街2层",
+    "city": "万宁",
+    "hint": "11月1日午餐选石梅湾店，与下午石梅湾路线相配。营业、楼层入口及排队出发当天电话确认。",
+    "source": "https://hk.trip.com/restaurant/china/wanning/detail/grandma-hu-hainan-food-stall-shimeiwan-branch-144878446/",
+    "phone": "0898-62574468"
+  },
+  "wnvinegar": {
+    "name": "太琼糟粕醋（石梅湾店）",
+    "address": "万宁市石梅湾度假区九里润街二楼B213号",
+    "city": "万宁",
+    "hint": "11月1日晚餐候选，与石梅湾游玩同片区。地图商户名称存在“百年传统火锅/海南酸汤火锅”写法，以门牌与实际营业核对。",
+    "source": "https://www.amap.com/place/B0JDHH1389"
+  },
+  "fenshen": {
+    "name": "万宁粉婶·椰奶炒冰（神州半岛灯塔店）",
+    "address": "万宁市435县道与凤凰路交叉口西北约20米",
+    "city": "万宁",
+    "hint": "门店名称及地址来自你10月26日上传截图。11月2日午饭回神州半岛吃，截图营业时间仅作线索，出发当天再核对。",
+    "source": "",
+    "approx": true
+  },
+  "jianghu": {
+    "name": "江湖见面重庆面馆（神州半岛店）",
+    "address": "万宁市东澳镇神州半岛神州小镇Z3-3-105—106号",
+    "city": "万宁",
+    "hint": "11月2日晚饭，与睿悦酒店同片区，先电话或地图确认当天营业。",
+    "source": "https://www.wingontravel.com/discovery/restaurant-154587232",
+    "phone": "13198955546"
   }
 };
